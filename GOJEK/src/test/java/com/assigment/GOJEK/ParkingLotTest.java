@@ -22,6 +22,7 @@ public class ParkingLotTest extends TestCase {
 		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
 	}
 	
+	
 	public void testNearestAvailableSlot2() {
 		int noOfSlots = 5;
 		ParkingLot parkLot = new ParkingLotImpl(noOfSlots);

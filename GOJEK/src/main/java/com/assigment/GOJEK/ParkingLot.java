@@ -17,6 +17,7 @@ public abstract class ParkingLot implements ParkingLotI {
 			slots.add(new Slot(slot,0));// since we are not handling any usecases related to level, assing all slots to level 0
 		
 	}
+	//TODO  -- REMOVE MUTATOR METHODS
 	public PriorityQueue<Slot> getSlots() {
 		return slots;
 	}
