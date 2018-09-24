@@ -12,7 +12,7 @@ public class ParkingLotTest extends TestCase {
 	public void testParkingLotHasNSlots() {
 		int noOfSlots = 5;
 		ParkingLot parkLot = new ParkingLotImpl(noOfSlots);
-		assertEquals(noOfSlots,parkLot.getSlots.size());
+		assertEquals(noOfSlots,parkLot.getSlots().size());
 	}
 
 }
