@@ -1,5 +1,5 @@
 package com.assigment.GOJEK;
 
-public interface ParkingLot {
+public abstract class ParkingLot implements ParkingLotI {
 
 }
