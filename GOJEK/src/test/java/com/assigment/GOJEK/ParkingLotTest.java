@@ -37,8 +37,13 @@ public class ParkingLotTest extends TestCase {
 	}
 
 	
-	public void testPark() {
+	/*public void testPark() {
 		parkLot.park();
+	}*/
+	
+	public void testParkRegistersCarDetails() {
+		Car car = new Car("KA-01-HH-1234",Color);
+		parkLot.park(car);
 	}
 	
 	
