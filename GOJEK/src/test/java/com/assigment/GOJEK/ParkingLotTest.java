@@ -36,15 +36,18 @@ public class ParkingLotTest extends TestCase {
 		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
 	}
 
-	
-	/*public void testPark() {
-		parkLot.park();
-	}*/
-	
 	public void testParkRegistersCarDetails() {
 		Car car = new Car("KA-01-HH-1234",Color.BLACK);
 		parkLot.park(car);
 	}
+	
+	public void testParkingGivesTicketNumber() {
+		Car car = new Car("KA-01-HH-1234",Color.BLACK);
+        assertNotNull(parkLot.park(car));
+		
+	}
+	
+	
 	
 	
 }
