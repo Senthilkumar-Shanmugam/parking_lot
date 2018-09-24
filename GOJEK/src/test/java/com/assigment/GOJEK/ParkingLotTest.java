@@ -38,6 +38,6 @@ public class ParkingLotTest extends TestCase {
 
 	
 	public void testParkAndGetTicket() {
-		
+		parkLot.park();
 	}
 }
