@@ -40,4 +40,6 @@ public class ParkingLotTest extends TestCase {
 	public void testPark() {
 		parkLot.park();
 	}
+	
+	
 }

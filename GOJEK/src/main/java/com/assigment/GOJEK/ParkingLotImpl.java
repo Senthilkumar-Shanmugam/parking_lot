@@ -16,4 +16,9 @@ public class ParkingLotImpl extends ParkingLot {
 		return slot;
 	}
 
+	@Override
+	public Ticket park() {
+		return null;
+	}
+
 }
