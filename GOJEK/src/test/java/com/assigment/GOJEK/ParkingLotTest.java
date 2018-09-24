@@ -21,5 +21,14 @@ public class ParkingLotTest extends TestCase {
 		Slot nearestSlot = new Slot(1,0);
 		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
 	}
+	
+	public void testNearestAvailableSlot2() {
+		int noOfSlots = 5;
+		ParkingLot parkLot = new ParkingLotImpl(noOfSlots);
+		parkLot.getSlots().poll();
+		parkLot.getSlots().poll();
+		Slot nearestSlot = new Slot(3,0);
+		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
+	}
 
 }
