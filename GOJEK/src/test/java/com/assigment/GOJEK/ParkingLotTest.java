@@ -8,5 +8,11 @@ public class ParkingLotTest extends TestCase {
 		ParkingLot parkLot = new ParkingLotImpl();
 		assertNotNull(parkLot);
 	}
+	
+	public void testParkingLotHasNSlots() {
+		int noOfSlots = 5;
+		ParkingLot parkLot = new ParkingLotImpl(noOfSlots);
+		assertEquals(noOfSlots,parkLot.getSlots.size());
+	}
 
 }
