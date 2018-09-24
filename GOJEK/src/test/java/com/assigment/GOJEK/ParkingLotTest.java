@@ -37,7 +37,7 @@ public class ParkingLotTest extends TestCase {
 	}
 
 	
-	public void testParkAndGetTicket() {
+	public void testPark() {
 		parkLot.park();
 	}
 }
