@@ -42,7 +42,7 @@ public class ParkingLotTest extends TestCase {
 	}*/
 	
 	public void testParkRegistersCarDetails() {
-		Car car = new Car("KA-01-HH-1234",Color);
+		Car car = new Car("KA-01-HH-1234",Color.BLACK);
 		parkLot.park(car);
 	}
 	
