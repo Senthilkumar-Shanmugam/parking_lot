@@ -18,8 +18,8 @@ public class ParkingLotTest extends TestCase {
 	public void testgetNearestAvaiableSlot() {
 		int noOfSlots = 5;
 		ParkingLot parkLot = new ParkingLotImpl(noOfSlots);
-		assertEquals(1, parkLot.getNearestAvailableSlot());
-		
+		Slot nearestSlot = new Slot(1,0);
+		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
 	}
 
 }
