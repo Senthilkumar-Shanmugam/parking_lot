@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 public abstract class ParkingLot implements ParkingLotI {
 	private PriorityQueue<Slot> slots = null;
 	
-public ParkingLot() {}
+    public ParkingLot() {}
 	
 	public ParkingLot(int number) {
 		slots = new PriorityQueue<Slot>(number);
