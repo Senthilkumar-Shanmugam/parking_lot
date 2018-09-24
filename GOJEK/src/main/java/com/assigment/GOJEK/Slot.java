@@ -2,25 +2,30 @@ package com.assigment.GOJEK;
 
 
 public class Slot{
-	private int slotId;//asuming id is the nearest to entrance
-	private int level;
+	private Integer slotId;//asuming id is the nearest to entrance
+	private Integer level;
 	
-	public int getSlotId() {
+	public Integer getSlotId() {
 		return slotId;
 	}
-	public void setSlotId(int slotId) {
+	public Slot(Integer slotId, Integer level) {
+		super();
+		this.slotId = slotId;
+		this.level = level;
+	}
+	public void setSlotId(Integer slotId) {
 		this.slotId = slotId;
 	}
-	public int getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
-	public void setLevel(int level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
+		final Integer prime = 31;
+		Integer result = 1;
 		result = prime * result + level;
 		result = prime * result + slotId;
 		return result;

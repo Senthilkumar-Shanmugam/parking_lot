@@ -8,9 +8,15 @@ public abstract class ParkingLot implements ParkingLotI {
     public ParkingLot() {}
 	
 	public ParkingLot(int number) {
-		slots = new PriorityQueue<Slot>(number);
+		slots = new PriorityQueue(number,new SlotComparator());
+		addSlotsToParkingLot(number);
 	}
 	
+	private void addSlotsToParkingLot(int number) {
+		for(int slot=1;slot<=number;slot++)
+			slots.add(new Slot(slot,0));// since we are not handling any usecases related to level, assing all slots to level 0
+		
+	}
 	public PriorityQueue<Slot> getSlots() {
 		return slots;
 	}

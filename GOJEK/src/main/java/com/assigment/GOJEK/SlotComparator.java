@@ -2,11 +2,11 @@ package com.assigment.GOJEK;
 
 import java.util.Comparator;
 
-public class SlotComparator implements Comparator<Integer> {
+public class SlotComparator implements Comparator<Slot> {
 
 	@Override
-	public int compare(Integer o1, Integer o2) {
-		return o1.compareTo(o2);
+	public int compare(Slot s1, Slot s2) {
+		return s1.getSlotId().compareTo(s2.getSlotId());
 	}
 
 }
