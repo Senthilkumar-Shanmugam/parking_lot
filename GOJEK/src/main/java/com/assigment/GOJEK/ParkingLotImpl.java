@@ -18,7 +18,11 @@ public class ParkingLotImpl extends ParkingLot {
 
 	@Override
 	public Ticket park(Car car) {
-		return null;
+		return generateTicket(car);
 	}
 
+	private Ticket generateTicket(Car car) {
+		//TODO 
+		return new Ticket();
+	}
 }
