@@ -10,4 +10,10 @@ public class ParkingLotImpl extends ParkingLot {
 		super(number);
 	}
 
+	@Override
+	public Slot getNearestAvailableSlot() {
+		Slot slot = this.getSlots().poll();
+		return slot;
+	}
+
 }
