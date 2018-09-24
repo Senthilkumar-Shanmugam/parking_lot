@@ -1,0 +1,7 @@
+
+.DS_Store
+GOJEK/.classpath
+GOJEK/.project
+GOJEK/.settings/org.eclipse.core.resources.prefs
+GOJEK/.settings/org.eclipse.jdt.core.prefs
+*.prefs
