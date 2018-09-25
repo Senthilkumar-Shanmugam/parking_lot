@@ -40,14 +40,21 @@ public class ParkingLotImpl extends ParkingLot {
 	}
 
 	@Override
-	public void leave(Slot slot) {
+	public void leave(Slot slot) throws Exception {
 		//TODO.. free up car from parked data strcutures
 		this.getSlots().add(slot);
 		
-		//remove slot from regNumSlotMap
+		Car car = getSlotCarMap().get(slot);
+		if(car == null)
+			throw new Exception("No car found"); // need to add test coverage for this , violating TDD
+		
+		
+		//remove slot from regNumSlotMap and SlotCarMap
 		if(getRegNumMap() != null && getRegNumMap().size() > 0) {
-		//	getRegNumMap().
+		   getRegNumMap().remove(car.getRegNum());
 		}
+		
+		getSlotCarMap().remove(slot); //need to add test coverage for this
 		
 	}
 

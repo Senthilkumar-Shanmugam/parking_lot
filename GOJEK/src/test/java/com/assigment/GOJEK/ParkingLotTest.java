@@ -78,7 +78,7 @@ public class ParkingLotTest extends TestCase {
 		assertTrue(parkLot.getSlotCarMap().containsKey(slot));
 	}
 	
-	public void testleaveFreesUpOneSlot() {
+	public void testleaveFreesUpOneSlot() throws Exception {
 		Slot myslot = new Slot(3,0);
 		int slotsbefore=parkLot.getSlots().size();
 		parkLot.leave(myslot);
@@ -87,7 +87,7 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
-     public void testLeaveRemovesRegNumSlotMap() throws NOFreeSlotException {
+     public void testLeaveRemovesRegNumSlotMap() throws Exception {
 		parkLot.park(car);
 		Slot slot = new Slot(1,0);//assigns 1st slot
 		parkLot.leave(slot); //leave should remove the slot from regNumMap
