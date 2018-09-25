@@ -1,5 +1,7 @@
 package com.assigment.GOJEK;
 
+import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
+
 import junit.framework.TestCase;
 
 public class ParkingLotTest extends TestCase {
@@ -23,13 +25,13 @@ public class ParkingLotTest extends TestCase {
 		assertEquals(NUMBEROFSLOTS,parkLot.getSlots().size());
 	}
 	
-	public void testgetNearestAvaiableSlot() {
+	public void testgetNearestAvaiableSlot() throws NOFreeSlotException {
 		Slot nearestSlot = new Slot(1,0);
 		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
 	}
 	
 	
-	public void testNearestAvailableSlot2() {
+	public void testNearestAvailableSlot2() throws NOFreeSlotException {
 		parkLot.getSlots().poll();
 		parkLot.getSlots().poll();
 		Slot nearestSlot = new Slot(3,0);

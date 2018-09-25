@@ -1,5 +1,7 @@
 package com.assigment.GOJEK;
 
+import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
+
 public class ParkingLotImpl extends ParkingLot {
 	
 	public ParkingLotImpl() {
@@ -11,7 +13,7 @@ public class ParkingLotImpl extends ParkingLot {
 	}
 
 	@Override
-	public Slot getNearestAvailableSlot() {
+	public Slot getNearestAvailableSlot() throws NOFreeSlotException{
 		Slot slot = this.getSlots().poll();
 		return slot;
 	}
