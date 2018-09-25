@@ -1,6 +1,7 @@
 package com.assigment.GOJEK;
 
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
+import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 
 import junit.framework.TestCase;
 
@@ -80,14 +81,21 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
-	public void testgetSlotForRegNum() throws NOFreeSlotException {
+	public void testgetSlotForRegNum() throws NOFreeSlotException, NoSlotFoundForRegNum {
 		//First park a car and get the slot for that regnum
 		parkLot.park(car);
 		Slot Slot = parkLot.getSlotForRegNum(car.getRegNum());
 		assertNotNull(Slot);		
 	}
 	
-	public void testgetSlotForRegNumThrowsExceptionWhenNOtFound() {
+	public void testgetSlotForRegNumThrowsExceptionWhenNOtFound() throws NOFreeSlotException {
+		try {
+		parkLot.park(car);
+		Slot Slot = parkLot.getSlotForRegNum("dummy");
+        fail();
+		}catch(NoSlotFoundForRegNum expected) {
+			assertTrue(true);
+		}
 		
 	}
 	

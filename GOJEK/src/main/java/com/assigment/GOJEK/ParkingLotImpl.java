@@ -1,6 +1,7 @@
 package com.assigment.GOJEK;
 
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
+import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 
 public class ParkingLotImpl extends ParkingLot {
 	
@@ -44,7 +45,11 @@ public class ParkingLotImpl extends ParkingLot {
 	}
 
 	@Override
-	public Slot getSlotForRegNum(String RegNum) {
-		return this.getRegNumMap().get(RegNum);
+	public Slot getSlotForRegNum(String RegNum) throws NoSlotFoundForRegNum {
+		Slot slot = this.getRegNumMap().get(RegNum);
+		
+		if(slot == null)
+			throw new NoSlotFoundForRegNum("No Slot found for this register number:"+RegNum);
+		return slot;
 	}
 }
