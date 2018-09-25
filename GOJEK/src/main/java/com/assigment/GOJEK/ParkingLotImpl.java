@@ -1,6 +1,8 @@
 package com.assigment.GOJEK;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
@@ -32,6 +34,19 @@ public class ParkingLotImpl extends ParkingLot {
 		  this.getRegNumMap().put(car.getRegNum(), slot);
 		  this.getSlotCarMap().put(slot, car);
 		}
+		
+		//add car to the color map
+		Map<Color,List<Car>> colorCarMap = getColorCarMap();
+		List<Car> cars = colorCarMap.get(car.getColor());
+		
+		if(cars==null) { // violating TDD need to add test coverage later
+			cars = new ArrayList<Car>();
+			cars.add(car);
+			this.getColorCarMap().put(car.getColor(), cars);
+		}else {
+			cars.add(car);
+		}
+		
 		
 		return generateTicket(car);
 	}

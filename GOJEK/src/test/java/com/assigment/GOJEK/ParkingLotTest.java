@@ -1,5 +1,7 @@
 package com.assigment.GOJEK;
 
+import java.util.List;
+
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 
@@ -78,6 +80,13 @@ public class ParkingLotTest extends TestCase {
 		assertTrue(parkLot.getSlotCarMap().containsKey(slot));
 	}
 	
+	public void testParkAddsCarToColorMap() throws NOFreeSlotException {
+		parkLot.park(car);
+		List<Car> cars = parkLot.getColorCarMap().get(car.getColor());
+		assertTrue(cars.contains(car));
+		
+	}
+	
 	public void testleaveFreesUpOneSlot() throws Exception {
 		int slotsbefore=parkLot.getSlots().size();
 		parkLot.park(car);
@@ -113,9 +122,9 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
-	public void testgetRegNumsForColor() {
+	/*public void testgetRegNumsForColor() {
 		assertTrue(parkLot.getRegNumsForColor(Color.BLACK).size() > 0);
-	}
+	}*/
 	
 	
 }
