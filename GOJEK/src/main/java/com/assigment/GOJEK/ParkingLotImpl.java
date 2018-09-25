@@ -103,7 +103,20 @@ public class ParkingLotImpl extends ParkingLot {
 	}
 
 	@Override
-	public List<Slot> getParkedSlotsForColor(Color color) {
-		return null;
+	public List<Slot> getParkedSlotsForColor(Color color)  {
+		List<Slot> slots = new ArrayList<Slot>();
+		
+		try {
+		  List<Car> cars = getColorCarMap().get(color);
+		
+		  for(Car car:cars) {
+			Slot slot = getSlotForRegNum(car.getRegNum());
+			slots.add(slot);
+		  }
+		} catch (NoSlotFoundForRegNum e) {
+			e.printStackTrace();
+		}
+		
+		return slots;
 	}
 }
