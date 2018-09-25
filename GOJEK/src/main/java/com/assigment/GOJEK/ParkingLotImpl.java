@@ -1,5 +1,7 @@
 package com.assigment.GOJEK;
 
+import java.util.List;
+
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 
@@ -65,5 +67,11 @@ public class ParkingLotImpl extends ParkingLot {
 		if(slot == null)
 			throw new NoSlotFoundForRegNum("No Slot found for this register number:"+RegNum);
 		return slot;
+	}
+
+	@Override
+	public List<String> getRegNumsForColor(Color color) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
