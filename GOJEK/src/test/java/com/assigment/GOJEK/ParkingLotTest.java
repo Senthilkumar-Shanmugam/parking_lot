@@ -148,5 +148,9 @@ public class ParkingLotTest extends TestCase {
 		assertTrue(parkLot.getParkedSlotsForColor(Color.BLACK).size() > 0);
 	}
 	
+	public void testStatusPrintsParkingStatus() {
+		parkLot.park(car);
+		parkingLot.status();
+	}
 	
 }
