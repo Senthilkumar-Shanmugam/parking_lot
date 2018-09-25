@@ -79,11 +79,12 @@ public class ParkingLotTest extends TestCase {
 	}
 	
 	public void testleaveFreesUpOneSlot() throws Exception {
-		Slot myslot = new Slot(3,0);
 		int slotsbefore=parkLot.getSlots().size();
-		parkLot.leave(myslot);
+		parkLot.park(car);
+		Slot slot = parkLot.getSlotForRegNum(car.getRegNum());
+		parkLot.leave(slot);
 		int slotsafter = parkLot.getSlots().size();
-		assertEquals(slotsbefore+1, slotsafter);
+		assertEquals(slotsbefore, slotsafter);
 		
 	}
 	
