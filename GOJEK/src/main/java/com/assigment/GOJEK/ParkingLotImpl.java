@@ -15,6 +15,9 @@ public class ParkingLotImpl extends ParkingLot {
 	@Override
 	public Slot getNearestAvailableSlot() throws NOFreeSlotException{
 		Slot slot = this.getSlots().poll();
+		
+		if(slot==null)
+			throw new NOFreeSlotException("No Free slot available to park your car");
 		return slot;
 	}
 
