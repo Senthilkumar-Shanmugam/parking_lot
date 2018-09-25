@@ -121,7 +121,21 @@ public class ParkingLotImpl extends ParkingLot {
 	}
 
 	@Override
-	public void status() {
-		System.out.println("Slot No.     Registeration No     Color");		
+	public void status() throws Exception {
+		System.out.println("Slot No.\tRegisteration No\tColor");
+		
+		Map<Slot,Car> slotCarMap = getSlotCarMap();
+		
+		if(slotCarMap.size() < 1) {
+			throw new Exception("No car is parked");
+		}
+		
+		for(Map.Entry<Slot, Car> entry : slotCarMap.entrySet()) {
+			Slot slot =  entry.getKey();
+			Car car = entry.getValue();
+			System.out.println(slot.getSlotId()+"\t"+car.getRegNum()+"\t"+car.getColor());
+			
+		}
+		
 	}
 }

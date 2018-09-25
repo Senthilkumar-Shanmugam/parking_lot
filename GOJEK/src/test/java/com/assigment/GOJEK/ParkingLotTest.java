@@ -153,17 +153,17 @@ public class ParkingLotTest extends TestCase {
 		assertTrue(parkLot.getParkedSlotsForColor(Color.BLACK).size() > 0);
 	}
 	
-	public void testStatusPrintsParkingStatus() throws NOFreeSlotException {
+	public void testStatusPrintsParkingStatus() throws Exception {
 		parkLot.park(car);
 		parkLot.status();
 	}
 	
-	public void testStatusPrintsConsoleInExpectedFormat() throws NOFreeSlotException {
+	public void testStatusPrintsConsoleInExpectedFormat() throws Exception {
 		parkLot.park(car);
 		PrintStream out = mock(PrintStream.class);
         System.setOut(out);
         parkLot.status();
-        verify(out).println(matches("Slot No.     Registeration No     Color"));
+        verify(out).println(matches("Slot No.\tRegisteration No\tColor"));
 		
 	}
 	
