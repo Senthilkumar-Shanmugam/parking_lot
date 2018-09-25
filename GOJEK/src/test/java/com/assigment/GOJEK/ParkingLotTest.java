@@ -75,8 +75,11 @@ public class ParkingLotTest extends TestCase {
 	}
 	
 	public void testgetSlotForRegNum() {
-		String regNum = "dummy";
-		Slot Slot = parkLot.getSlotForRegNum(regNum);
+		//String regNum = "dummy";
+		//First park a car and get the slot for that regnum
+		Car car = new Car("KA-01-HH-1234",Color.BLACK);
+        parkLot.park(car);
+		Slot Slot = parkLot.getSlotForRegNum(car.getRegNum());
 		assertNotNull(Slot);		
 	}
 	
