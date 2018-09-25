@@ -1,14 +1,18 @@
 package com.assigment.GOJEK;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public abstract class ParkingLot implements ParkingLotI {
 	private PriorityQueue<Slot> slots = null;
+	private Map<String,Slot> regNumMap;
 	
     public ParkingLot() {}
 	
 	public ParkingLot(int number) {
 		slots = new PriorityQueue(number,new SlotComparator());
+		regNumMap = new HashMap<String,Slot>();
 		addSlotsToParkingLot(number);
 	}
 	
@@ -24,6 +28,14 @@ public abstract class ParkingLot implements ParkingLotI {
 
 	public void setSlots(PriorityQueue<Slot> slots) {
 		this.slots = slots;
+	}
+
+	public Map<String, Slot> getRegNumMap() {
+		return regNumMap;
+	}
+
+	public void setRegNumMap(Map<String, Slot> regNumMap) {
+		this.regNumMap = regNumMap;
 	}
 
 	

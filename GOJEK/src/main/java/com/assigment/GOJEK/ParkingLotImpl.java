@@ -40,7 +40,6 @@ public class ParkingLotImpl extends ParkingLot {
 
 	@Override
 	public Slot getSlotForRegNum(String RegNum) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getRegNumMap().get(RegNum);
 	}
 }
