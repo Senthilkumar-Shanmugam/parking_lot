@@ -54,17 +54,17 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 
-	public void testParkRegistersCarDetails() {
+	public void testParkRegistersCarDetails() throws NOFreeSlotException {
 		Car car = new Car("KA-01-HH-1234",Color.BLACK);
 		parkLot.park(car);
 	}
 	
-	public void testParkingGivesTicketNumber() {
+	public void testParkingGivesTicketNumber() throws NOFreeSlotException {
 		Car car = new Car("KA-01-HH-1234",Color.BLACK);
         assertNotNull(parkLot.park(car));
 	}
 	
-	public void testParkAddsRegNumSlotMap() {
+	public void testParkAddsRegNumSlotMap() throws NOFreeSlotException {
 		Car car = new Car("KA-01-HH-1234",Color.BLACK);
         parkLot.park(car);
         assertTrue(parkLot.getRegNumMap().containsKey(car.getRegNum()));
@@ -79,8 +79,7 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
-	public void testgetSlotForRegNum() {
-		//String regNum = "dummy";
+	public void testgetSlotForRegNum() throws NOFreeSlotException {
 		//First park a car and get the slot for that regnum
 		Car car = new Car("KA-01-HH-1234",Color.BLACK);
         parkLot.park(car);

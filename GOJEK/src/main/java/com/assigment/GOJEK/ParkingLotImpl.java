@@ -22,7 +22,12 @@ public class ParkingLotImpl extends ParkingLot {
 	}
 
 	@Override
-	public Ticket park(Car car) {
+	public Ticket park(Car car) throws NOFreeSlotException {
+		Slot slot = getNearestAvailableSlot();
+		
+		if(slot != null)
+		  this.getRegNumMap().put(car.getRegNum(), slot);
+		
 		return generateTicket(car);
 	}
 
