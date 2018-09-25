@@ -122,7 +122,6 @@ public class ParkingLotImpl extends ParkingLot {
 
 	@Override
 	public void status() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Slot No.     Registeration No     Color");		
 	}
 }

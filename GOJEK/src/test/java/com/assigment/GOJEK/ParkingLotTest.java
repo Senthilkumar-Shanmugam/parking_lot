@@ -1,9 +1,14 @@
 package com.assigment.GOJEK;
 
+import java.io.PrintStream;
 import java.util.List;
 
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
+import static org.mockito.Matchers.matches;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 
 import junit.framework.TestCase;
 
@@ -152,5 +157,15 @@ public class ParkingLotTest extends TestCase {
 		parkLot.park(car);
 		parkLot.status();
 	}
+	
+	public void testStatusPrintsConsoleInExpectedFormat() throws NOFreeSlotException {
+		parkLot.park(car);
+		PrintStream out = mock(PrintStream.class);
+        System.setOut(out);
+        parkLot.status();
+        verify(out).println(matches("Slot No.     Registeration No     Color"));
+		
+	}
+	
 	
 }
