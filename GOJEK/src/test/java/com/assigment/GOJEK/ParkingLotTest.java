@@ -6,16 +6,20 @@ import junit.framework.TestCase;
 
 public class ParkingLotTest extends TestCase {
 	ParkingLot parkLot = null;
+	Car car = null;
 	private static final int NUMBEROFSLOTS = 5;
 	
 	@Override
 	protected void setUp() {
 		parkLot = new ParkingLotImpl(NUMBEROFSLOTS);
+		car = new Car("KA-01-HH-1234",Color.BLACK);
+        
 	}
 	
 	@Override
 	protected void tearDown() {
 		parkLot = null;
+		car = null;
 	}
 	public void testParkingLotExists() {
 		assertNotNull(parkLot);
@@ -55,18 +59,15 @@ public class ParkingLotTest extends TestCase {
 	}
 
 	public void testParkRegistersCarDetails() throws NOFreeSlotException {
-		Car car = new Car("KA-01-HH-1234",Color.BLACK);
 		parkLot.park(car);
 	}
 	
 	public void testParkingGivesTicketNumber() throws NOFreeSlotException {
-		Car car = new Car("KA-01-HH-1234",Color.BLACK);
-        assertNotNull(parkLot.park(car));
+	    assertNotNull(parkLot.park(car));
 	}
 	
 	public void testParkAddsRegNumSlotMap() throws NOFreeSlotException {
-		Car car = new Car("KA-01-HH-1234",Color.BLACK);
-        parkLot.park(car);
+	    parkLot.park(car);
         assertTrue(parkLot.getRegNumMap().containsKey(car.getRegNum()));
 	}
 	
@@ -81,10 +82,13 @@ public class ParkingLotTest extends TestCase {
 	
 	public void testgetSlotForRegNum() throws NOFreeSlotException {
 		//First park a car and get the slot for that regnum
-		Car car = new Car("KA-01-HH-1234",Color.BLACK);
-        parkLot.park(car);
+		parkLot.park(car);
 		Slot Slot = parkLot.getSlotForRegNum(car.getRegNum());
 		assertNotNull(Slot);		
+	}
+	
+	public void testgetSlotForRegNumThrowsExceptionWhenNOtFound() {
+		
 	}
 	
 	
