@@ -81,6 +81,13 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
+	public void testLeaveRemovesRegNumSlotMap() throws NOFreeSlotException {
+		parkLot.park(car);
+		Slot slot = new Slot(1,0);//assigns 1st slot
+		parkLot.leave(slot); //leave should remove the slot from regNumMap
+		assertNull(parkLot.getRegNumMap().get(car.getRegNum()));
+	}
+	
 	public void testgetSlotForRegNum() throws NOFreeSlotException, NoSlotFoundForRegNum {
 		//First park a car and get the slot for that regnum
 		parkLot.park(car);
