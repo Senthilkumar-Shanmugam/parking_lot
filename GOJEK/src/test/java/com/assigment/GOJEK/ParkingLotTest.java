@@ -164,8 +164,12 @@ public class ParkingLotTest extends TestCase {
         System.setOut(out);
         parkLot.status();
         verify(out).println(matches("Slot No.\tRegisteration No\tColor"));
+        verify(out).println(matches("1\t"+car.getRegNum()+"\t"+car.getColor()));
+
 		
 	}
+	
+	
 	
 	
 }
