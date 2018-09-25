@@ -73,6 +73,12 @@ public class ParkingLotImpl extends ParkingLot {
 		
 		getSlotCarMap().remove(slot); //need to add test coverage for this
 		
+		//remove it from color map
+		
+		List<Car> cars = getColorCarMap().get(car.getColor());
+		if(cars != null && cars.size() > 0)
+			cars.remove(car);
+		
 	}
 
 	@Override
