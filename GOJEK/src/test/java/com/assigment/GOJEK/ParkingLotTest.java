@@ -65,7 +65,7 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
-	public testleaveFreesUpOneSlot() {
+	public void testleaveFreesUpOneSlot() {
 		Slot myslot = new Slot(3,0);
 		int slotsbefore=parkLot.getSlots().size();
 		parkLot.leave(myslot);

@@ -30,4 +30,10 @@ public class ParkingLotImpl extends ParkingLot {
 		//TODO 
 		return new Ticket();
 	}
+
+	@Override
+	public void leave(Slot slot) {
+		// TODO Auto-generated method stub
+		
+	}
 }
