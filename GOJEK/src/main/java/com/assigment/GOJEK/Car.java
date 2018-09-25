@@ -13,6 +13,26 @@ public class Car {
 		this.RegNum = regNum;
 		this.color = color;
 	}
+
+
+	public String getRegNum() {
+		return RegNum;
+	}
+
+
+	public void setRegNum(String regNum) {
+		RegNum = regNum;
+	}
+
+
+	public Color getColor() {
+		return color;
+	}
+
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
 	
 
 }
