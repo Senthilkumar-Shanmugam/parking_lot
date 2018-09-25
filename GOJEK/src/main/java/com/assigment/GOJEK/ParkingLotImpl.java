@@ -33,7 +33,8 @@ public class ParkingLotImpl extends ParkingLot {
 
 	@Override
 	public void leave(Slot slot) {
-		// TODO Auto-generated method stub
+		//TODO.. free up car from parked data strcutures
+		this.getSlots().add(slot);
 		
 	}
 }
