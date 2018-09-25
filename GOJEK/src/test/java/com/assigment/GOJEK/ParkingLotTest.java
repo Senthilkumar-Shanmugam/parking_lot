@@ -113,5 +113,9 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
+	public void testgetRegNumsForColor() {
+		assertTrue(parkLot.getRegNumsForColor(Color.BLACK).size() > 0);
+	}
+	
 	
 }
