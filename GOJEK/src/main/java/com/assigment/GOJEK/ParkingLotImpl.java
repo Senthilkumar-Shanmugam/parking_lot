@@ -119,4 +119,10 @@ public class ParkingLotImpl extends ParkingLot {
 		
 		return slots;
 	}
+
+	@Override
+	public void status() {
+		// TODO Auto-generated method stub
+		
+	}
 }
