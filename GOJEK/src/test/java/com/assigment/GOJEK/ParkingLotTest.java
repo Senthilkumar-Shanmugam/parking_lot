@@ -145,7 +145,7 @@ public class ParkingLotTest extends TestCase {
 	
 	public void testgetParkedSlotsForColor() throws NOFreeSlotException {
 		parkLot.park(car);
-		parkLot.getParkedSlotsForColor(Color.BLACK);
+		assertTrue(parkLot.getParkedSlotsForColor(Color.BLACK).size() > 0);
 	}
 	
 	

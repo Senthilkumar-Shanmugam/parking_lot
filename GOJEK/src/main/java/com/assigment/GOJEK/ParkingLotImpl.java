@@ -101,4 +101,9 @@ public class ParkingLotImpl extends ParkingLot {
 		
 		return regNums;
 	}
+
+	@Override
+	public List<Slot> getParkedSlotsForColor(Color color) {
+		return null;
+	}
 }

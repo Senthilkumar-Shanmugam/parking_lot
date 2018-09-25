@@ -11,4 +11,5 @@ public interface ParkingLotI {
 	public void leave(Slot slot) throws Exception;
 	public Slot getSlotForRegNum(String RegNum) throws NoSlotFoundForRegNum;
 	public List<String> getRegNumsForColor(Color color);
+	public List<Slot> getParkedSlotsForColor(Color color);
 }
