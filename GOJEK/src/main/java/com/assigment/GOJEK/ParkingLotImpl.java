@@ -86,7 +86,13 @@ public class ParkingLotImpl extends ParkingLot {
 
 	@Override
 	public List<String> getRegNumsForColor(Color color) {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> regNums = new ArrayList<String>();
+		
+		List<Car> carsForColor = getColorCarMap().get(color);
+		
+		for(Car car:carsForColor)
+			regNums.add(car.getRegNum());
+		
+		return regNums;
 	}
 }
