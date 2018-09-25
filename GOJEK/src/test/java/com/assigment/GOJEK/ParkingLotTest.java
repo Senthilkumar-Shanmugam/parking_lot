@@ -62,7 +62,12 @@ public class ParkingLotTest extends TestCase {
 	public void testParkingGivesTicketNumber() {
 		Car car = new Car("KA-01-HH-1234",Color.BLACK);
         assertNotNull(parkLot.park(car));
-		
+	}
+	
+	public void testParkAddsRegNumSlotMap() {
+		Car car = new Car("KA-01-HH-1234",Color.BLACK);
+        parkLot.park(car);
+        assertTrue(parkLot.getRegNumMap().containsKey(car.getRegNum()));
 	}
 	
 	public void testleaveFreesUpOneSlot() {
