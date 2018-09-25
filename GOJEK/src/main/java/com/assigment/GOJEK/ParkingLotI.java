@@ -6,5 +6,4 @@ public interface ParkingLotI {
 	public Slot getNearestAvailableSlot() throws NOFreeSlotException;
 	public Ticket park(Car car);
 	public void leave(Slot slot);
-
 }

@@ -74,6 +74,11 @@ public class ParkingLotTest extends TestCase {
 		
 	}
 	
+	public void testgetSlotForRegNum() {
+		String regNum = "dummy";
+		String Slot = parkLot.getSlotForRegNum()
+		assertNotNull(Slot);		
+	}
 	
 	
 }
