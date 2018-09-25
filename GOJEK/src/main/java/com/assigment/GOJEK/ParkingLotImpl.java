@@ -26,8 +26,10 @@ public class ParkingLotImpl extends ParkingLot {
 	public Ticket park(Car car) throws NOFreeSlotException {
 		Slot slot = getNearestAvailableSlot();
 		
-		if(slot != null)
+		if(slot != null) {
 		  this.getRegNumMap().put(car.getRegNum(), slot);
+		  this.getSlotCarMap().put(slot, car);
+		}
 		
 		return generateTicket(car);
 	}
@@ -41,6 +43,11 @@ public class ParkingLotImpl extends ParkingLot {
 	public void leave(Slot slot) {
 		//TODO.. free up car from parked data strcutures
 		this.getSlots().add(slot);
+		
+		//remove slot from regNumSlotMap
+		if(getRegNumMap() != null && getRegNumMap().size() > 0) {
+		//	getRegNumMap().
+		}
 		
 	}
 

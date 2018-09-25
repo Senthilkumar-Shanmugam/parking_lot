@@ -7,12 +7,14 @@ import java.util.PriorityQueue;
 public abstract class ParkingLot implements ParkingLotI {
 	private PriorityQueue<Slot> slots = null;
 	private Map<String,Slot> regNumMap;
+	private Map<Slot,Car> slotCarMap;
 	
     public ParkingLot() {}
 	
 	public ParkingLot(int number) {
 		slots = new PriorityQueue(number,new SlotComparator());
 		regNumMap = new HashMap<String,Slot>();
+		slotCarMap = new HashMap<Slot,Car>();
 		addSlotsToParkingLot(number);
 	}
 	
@@ -36,6 +38,14 @@ public abstract class ParkingLot implements ParkingLotI {
 
 	public void setRegNumMap(Map<String, Slot> regNumMap) {
 		this.regNumMap = regNumMap;
+	}
+
+	public Map<Slot, Car> getSlotCarMap() {
+		return slotCarMap;
+	}
+
+	public void setSlotCarMap(Map<Slot, Car> slotCarMap) {
+		this.slotCarMap = slotCarMap;
 	}
 
 	
