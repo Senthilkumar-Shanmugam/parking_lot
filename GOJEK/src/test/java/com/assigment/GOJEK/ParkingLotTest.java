@@ -143,5 +143,10 @@ public class ParkingLotTest extends TestCase {
 		assertTrue(parkLot.getRegNumsForColor(Color.BLACK).size() > 0);
 	}
 	
+	public void testgetParkedSlotsForColor() throws NOFreeSlotException {
+		parkLot.park(car);
+		parkLot.getParkedSlotsForColor(Color.BLACK);
+	}
+	
 	
 }
