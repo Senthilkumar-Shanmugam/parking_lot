@@ -48,12 +48,12 @@ public class ParkingLotImpl extends ParkingLot {
 		}
 		
 		
-		return generateTicket(car);
+		return generateTicket(car,slot.getSlotId());
 	}
 
-	private Ticket generateTicket(Car car) {
+	private Ticket generateTicket(Car car,int slotId) {
 		//TODO 
-		return new Ticket();
+		return new Ticket(slotId);
 	}
 
 	@Override
