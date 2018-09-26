@@ -25,7 +25,7 @@ public class ParkingLotTest extends TestCase {
 	@Override
 	protected void setUp() {
 		parkLot = new ParkingLotImpl(NUMBEROFSLOTS);
-		car = new Car("KA-01-HH-1234",Color.BLACK);
+		car = new Car("KA-01-HH-1234",Color.Black);
         
 	}
 	
