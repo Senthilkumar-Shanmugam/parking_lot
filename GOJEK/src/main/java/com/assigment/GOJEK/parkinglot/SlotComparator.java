@@ -1,4 +1,4 @@
-package com.assigment.GOJEK;
+package com.assigment.GOJEK.parkinglot;
 
 import java.util.Comparator;
 

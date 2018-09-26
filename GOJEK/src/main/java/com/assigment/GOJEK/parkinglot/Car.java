@@ -1,4 +1,4 @@
-package com.assigment.GOJEK;
+package com.assigment.GOJEK.parkinglot;
 
 public class Car {
 	private String RegNum;

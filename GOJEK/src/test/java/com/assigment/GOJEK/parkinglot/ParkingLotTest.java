@@ -1,8 +1,13 @@
-package com.assigment.GOJEK;
+package com.assigment.GOJEK.parkinglot;
 
 import java.io.PrintStream;
 import java.util.List;
 
+import com.assigment.GOJEK.parkinglot.Car;
+import com.assigment.GOJEK.parkinglot.Color;
+import com.assigment.GOJEK.parkinglot.ParkingLot;
+import com.assigment.GOJEK.parkinglot.ParkingLotImpl;
+import com.assigment.GOJEK.parkinglot.Slot;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 import static org.mockito.Matchers.matches;
