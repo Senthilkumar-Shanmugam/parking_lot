@@ -202,9 +202,14 @@ public class ParkingLotClient {
     	parkingLot = parkFactory.getParkingLot("Building1", nrOfSlots);
         System.out.println("Created a parking lot with " + nrOfSlots + " slots");
     }
-    private static void park(String registrationNumber, String color) throws NOFreeSlotException
+    private static void park(String registrationNumber, String color) 
     {
-        Ticket tkt = parkingLot.park(new Car(registrationNumber, Color.valueOf(color)));
+        Ticket tkt = null;
+		try {
+			tkt = parkingLot.park(new Car(registrationNumber, Color.valueOf(color)));
+		} catch (NOFreeSlotException e) {
+            System.out.println("Sorry, parking lot is full");
+		}
         System.out.println("Allocated slot number: " + tkt.getSlotId());
     }
     private static void leave(int slotId) throws Exception
