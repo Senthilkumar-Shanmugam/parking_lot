@@ -57,6 +57,7 @@ public class ParkingLotClient {
         System.out.println("\t registration_numbers_for_cars_with_colour <color>");
         System.out.println("\t slot_numbers_for_cars_with_colour <color>");
         System.out.println("\t slot_number_for_registration_number <registrationNumber>");
+        System.out.println("\t exit");
     }
     private static void runCommand(String commandln) throws Exception
     {
@@ -149,6 +150,8 @@ public class ParkingLotClient {
                 String regNo = commandInput[1];
                 slot_number_for_registration_number(regNo);
             }
+        }else if("exit".equals(command)) {
+        	System.exit(0);
         }
         else
         {
@@ -208,6 +211,7 @@ public class ParkingLotClient {
 		} catch (NOFreeSlotException e) {
             System.out.println("Sorry, parking lot is full");
 		}
+		if(tkt !=null)
         System.out.println("Allocated slot number: " + tkt.getSlotId());
     }
     private static void leave(int slotId) throws Exception
@@ -248,9 +252,14 @@ public class ParkingLotClient {
         }
         System.out.println(sb.toString());
     }
-    private static void slot_number_for_registration_number(String registrationNumber) throws NoSlotFoundForRegNum
+    private static void slot_number_for_registration_number(String registrationNumber) 
     {
-        Slot s = parkingLot.getSlotForRegNum(registrationNumber);
+        Slot s=null;
+		try {
+			s = parkingLot.getSlotForRegNum(registrationNumber);
+		} catch (NoSlotFoundForRegNum e) {
+			//e.printStackTrace();
+		}
         if(s == null)
         {
             System.out.println("Not found");
