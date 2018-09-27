@@ -29,7 +29,7 @@ public class ParkingLotClient {
         if(args.length > 0)
         {
             String fileName = args[0];
-            System.out.println("********************* Run Parking Lot using the commands in File*********************");
+            System.out.println("********************* Run Parking Lot Utility using the commands in File*********************");
             executeCommandsInFile(fileName);
         }
         else

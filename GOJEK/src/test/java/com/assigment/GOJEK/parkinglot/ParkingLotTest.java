@@ -6,7 +6,7 @@ import java.util.List;
 import com.assigment.GOJEK.parkinglot.Car;
 import com.assigment.GOJEK.parkinglot.Color;
 import com.assigment.GOJEK.parkinglot.ParkingLot;
-import com.assigment.GOJEK.parkinglot.ParkingLotImpl;
+import com.assigment.GOJEK.parkinglot.PublicParkingLot;
 import com.assigment.GOJEK.parkinglot.Slot;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
@@ -24,7 +24,7 @@ public class ParkingLotTest extends TestCase {
 	
 	@Override
 	protected void setUp() {
-		parkLot = new ParkingLotImpl(NUMBEROFSLOTS);
+		parkLot = new PublicParkingLot(NUMBEROFSLOTS);
 		car = new Car("KA-01-HH-1234",Color.Black);
         
 	}
@@ -81,7 +81,7 @@ public class ParkingLotTest extends TestCase {
 	
 	public void testParkAddsRegNumSlotMap() throws NOFreeSlotException {
 	    parkLot.park(car);
-        assertTrue(parkLot.getRegNumMap().containsKey(car.getRegNum()));
+        assertTrue(parkLot.getRegNumSlotMap().containsKey(car.getRegNum()));
 	}
 	
 	public void  testParkAddsToSlotCarMap() throws NOFreeSlotException {
@@ -111,7 +111,7 @@ public class ParkingLotTest extends TestCase {
 		parkLot.park(car);
 		Slot slot = new Slot(1,0);//assigns 1st slot
 		parkLot.leave(slot); //leave should remove the slot from regNumMap
-		assertNull(parkLot.getRegNumMap().get(car.getRegNum()));
+		assertNull(parkLot.getRegNumSlotMap().get(car.getRegNum()));
 	}
 	
     public void testLeaveRemovesSlotCarMap() throws Exception {

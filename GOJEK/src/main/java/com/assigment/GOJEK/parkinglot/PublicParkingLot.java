@@ -7,13 +7,13 @@ import java.util.Map;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 
-public class ParkingLotImpl extends ParkingLot {
+public class PublicParkingLot extends ParkingLot {
 	
-	public ParkingLotImpl() {
+	public PublicParkingLot() {
 		super();
 	}
 	
-	public ParkingLotImpl(int number) {
+	public PublicParkingLot(int number) {
 		super(number);
 	}
 
@@ -31,7 +31,7 @@ public class ParkingLotImpl extends ParkingLot {
 		Slot slot = getNearestAvailableSlot();
 		
 		if(slot != null) {
-		  this.getRegNumMap().put(car.getRegNum(), slot);
+		  this.getRegNumSlotMap().put(car.getRegNum(), slot);
 		  this.getSlotCarMap().put(slot, car);
 		}
 		
@@ -67,8 +67,8 @@ public class ParkingLotImpl extends ParkingLot {
 		
 		
 		//remove slot from regNumSlotMap and SlotCarMap
-		if(getRegNumMap() != null && getRegNumMap().size() > 0) {
-		   getRegNumMap().remove(car.getRegNum());
+		if(getRegNumSlotMap() != null && getRegNumSlotMap().size() > 0) {
+		   getRegNumSlotMap().remove(car.getRegNum());
 		}
 		
 		getSlotCarMap().remove(slot); //need to add test coverage for this
@@ -83,7 +83,7 @@ public class ParkingLotImpl extends ParkingLot {
 
 	@Override
 	public Slot getSlotForRegNum(String RegNum) throws NoSlotFoundForRegNum {
-		Slot slot = this.getRegNumMap().get(RegNum);
+		Slot slot = this.getRegNumSlotMap().get(RegNum);
 		
 		if(slot == null)
 			throw new NoSlotFoundForRegNum("No Slot found for this register number:"+RegNum);
