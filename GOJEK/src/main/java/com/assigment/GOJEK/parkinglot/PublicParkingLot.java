@@ -136,7 +136,7 @@ public class PublicParkingLot extends ParkingLot {
 		for(Map.Entry<Slot, Car> entry : slotCarMap.entrySet()) {
 			Slot slot =  entry.getKey();
 			Car car = entry.getValue();
-			System.out.println(slot.getSlotId()+"\t"+car.getRegNum()+"\t"+car.getColor());
+			System.out.println(slot.getSlotId()+"\t\t"+car.getRegNum()+"\t\t"+car.getColor());
 			
 		}
 		

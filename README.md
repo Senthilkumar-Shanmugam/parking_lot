@@ -22,6 +22,7 @@ To build goto parking_lot/bin,
 To run the program with file input,
 
   -> run sh parking_lot file_inputs.txt
+     Note : make sure the path of file_inputs.txt 
 
 to run command CLI
    -> run sh parking_lot   

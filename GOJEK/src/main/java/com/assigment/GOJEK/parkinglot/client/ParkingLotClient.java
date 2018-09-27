@@ -9,6 +9,7 @@ import java.util.Scanner;
 import com.assigment.GOJEK.parkinglot.Car;
 import com.assigment.GOJEK.parkinglot.Color;
 import com.assigment.GOJEK.parkinglot.ParkingLotI;
+import com.assigment.GOJEK.parkinglot.ParkingLotType;
 import com.assigment.GOJEK.parkinglot.Slot;
 import com.assigment.GOJEK.parkinglot.Ticket;
 import com.assigment.GOJEK.parklot.exception.CarCanNotBeFoundException;
@@ -201,7 +202,7 @@ public class ParkingLotClient {
     }
     private static void create_parking_lot(int nrOfSlots) throws NoSuchParkingLotException
     {
-    	parkingLot = parkFactory.getParkingLot("Building1", nrOfSlots);
+    	parkingLot = parkFactory.getParkingLot(ParkingLotType.PUBLIC, nrOfSlots);
         System.out.println("Created a parking lot with " + nrOfSlots + " slots");
     }
     private static void park(String registrationNumber, String color) 
