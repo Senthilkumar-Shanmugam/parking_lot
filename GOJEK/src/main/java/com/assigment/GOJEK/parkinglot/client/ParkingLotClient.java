@@ -11,6 +11,7 @@ import com.assigment.GOJEK.parkinglot.Color;
 import com.assigment.GOJEK.parkinglot.ParkingLotI;
 import com.assigment.GOJEK.parkinglot.Slot;
 import com.assigment.GOJEK.parkinglot.Ticket;
+import com.assigment.GOJEK.parklot.exception.CarCanNotBeFoundException;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 import com.assigment.GOJEK.parklot.exception.NoSuchParkingLotException;
@@ -214,7 +215,7 @@ public class ParkingLotClient {
 		if(tkt !=null)
         System.out.println("Allocated slot number: " + tkt.getSlotId());
     }
-    private static void leave(int slotId) throws Exception
+    private static void leave(int slotId) throws CarCanNotBeFoundException
     {
     	parkingLot.leave(new Slot(slotId,0));
         System.out.println("Slot number " + slotId + " is free");

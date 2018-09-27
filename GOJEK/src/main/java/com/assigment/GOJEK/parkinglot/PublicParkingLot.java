@@ -1,9 +1,12 @@
 package com.assigment.GOJEK.parkinglot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.assigment.GOJEK.parklot.exception.CarCanNotBeFoundException;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 
@@ -33,37 +36,37 @@ public class PublicParkingLot extends ParkingLot {
 		if(slot != null) {
 		  this.getRegNumSlotMap().put(car.getRegNum(), slot);
 		  this.getSlotCarMap().put(slot, car);
+			//add car to the color map
+			Map<Color,List<Car>> colorCarMap = getColorCarMap();
+			List<Car> cars = colorCarMap.get(car.getColor());
+			
+			if(cars==null) { // violating TDD need to add test coverage later
+				cars = new ArrayList<Car>();
+				cars.add(car);
+				this.getColorCarMap().put(car.getColor(), cars);
+			}else {
+				cars.add(car);
+			}
 		}
-		
-		//add car to the color map
-		Map<Color,List<Car>> colorCarMap = getColorCarMap();
-		List<Car> cars = colorCarMap.get(car.getColor());
-		
-		if(cars==null) { // violating TDD need to add test coverage later
-			cars = new ArrayList<Car>();
-			cars.add(car);
-			this.getColorCarMap().put(car.getColor(), cars);
-		}else {
-			cars.add(car);
-		}
-		
-		
 		return generateTicket(car,slot.getSlotId());
 	}
 
 	private Ticket generateTicket(Car car,int slotId) {
-		//TODO 
-		return new Ticket(slotId);
+		Ticket ticket = new Ticket();
+		ticket.setSlotId(slotId);
+		ticket.setParkedCar(car);
+		ticket.setParkingTime(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()));
+		return ticket;
 	}
 
 	@Override
-	public void leave(Slot slot) throws Exception {
-		//TODO.. free up car from parked data strcutures
-		this.getSlots().add(slot);
-		
+	public void leave(Slot slot) throws CarCanNotBeFoundException {
 		Car car = getSlotCarMap().get(slot);
 		if(car == null)
-			throw new Exception("No car found"); // need to add test coverage for this , violating TDD
+			throw new CarCanNotBeFoundException("Car cannot be found at this slot:"+slot.getSlotId());
+		
+		this.getSlots().add(slot);
+		
 		
 		
 		//remove slot from regNumSlotMap and SlotCarMap
@@ -127,7 +130,7 @@ public class PublicParkingLot extends ParkingLot {
 		Map<Slot,Car> slotCarMap = getSlotCarMap();
 		
 		if(slotCarMap.size() < 1) {
-			throw new Exception("No car is parked");
+			System.out.println("No car is parked");
 		}
 		
 		for(Map.Entry<Slot, Car> entry : slotCarMap.entrySet()) {

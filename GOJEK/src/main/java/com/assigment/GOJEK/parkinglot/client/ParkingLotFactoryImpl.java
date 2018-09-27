@@ -13,7 +13,6 @@ public class ParkingLotFactoryImpl implements ParkingLotFactory {
 	private static Map<String,ParkingLot> parkingLots = new HashMap<String,ParkingLot>();
 
 	public ParkingLotFactoryImpl() {
-		// TODO Auto-generated constructor stub
 	}
 
 
