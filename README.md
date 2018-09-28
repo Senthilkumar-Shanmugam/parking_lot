@@ -14,15 +14,19 @@ Assumptions:
 Pre-requsities. 
 
    Maven and Java installed and environment variables are set for that
+   export PARKLOT_HOME=<dir of parking lot - full path>
 
-To build goto parking_lot/bin,
+To build goto parking_lot.
 
-   -> run sh setup
+   -> $ bin/setup
 
 To run the program with file input,
 
-  -> run sh parking_lot file_inputs.txt
+  -> $ bin/parking_lot file_inputs.txt
      Note : make sure the path of file_inputs.txt 
 
-to run command CLI
-   -> run sh parking_lot   
+To run command CLI
+   -> $bin/parking_lot  
+   
+To run functional tests
+   $bin/run_functional_tests

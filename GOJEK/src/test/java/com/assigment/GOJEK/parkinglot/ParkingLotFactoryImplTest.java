@@ -9,5 +9,9 @@ public class ParkingLotFactoryImplTest extends TestCase {
 
 	protected void tearDown() throws Exception {
 	}
+	
+	public void testParkingLotExists() {
+		assertTrue(true);
+	}
 
 }

@@ -1,4 +1,4 @@
-cd ../GOJEK
+cd ./GOJEK
 mvn clean compile
 mvn test
 mvn install
