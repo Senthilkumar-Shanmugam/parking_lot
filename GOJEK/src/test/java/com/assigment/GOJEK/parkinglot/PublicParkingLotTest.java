@@ -49,13 +49,13 @@ public class PublicParkingLotTest extends TestCase {
 		}
 	}
 	
-	public void testgetNearestAvaiableSlot() throws NOFreeSlotException {
+	public void testgetNearestAvaiableSlotWhenAllSlotsAreAvailable() throws NOFreeSlotException {
 		Slot nearestSlot = new Slot(1,0);
 		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
 	}
 	
 	
-	public void testNearestAvailableSlot2() throws NOFreeSlotException {
+	public void testNearestAvailableSlotWhenSomeSlotsAreAlreadyOccupied() throws NOFreeSlotException {
 		parkLot.getSlots().poll();
 		parkLot.getSlots().poll();
 		Slot nearestSlot = new Slot(3,0);
