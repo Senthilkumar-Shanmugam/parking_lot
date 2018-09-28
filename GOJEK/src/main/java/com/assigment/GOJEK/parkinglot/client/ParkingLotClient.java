@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import com.assigment.GOJEK.parkinglot.Car;
 import com.assigment.GOJEK.parkinglot.Color;
+import com.assigment.GOJEK.parkinglot.ParkingLotFactoryImpl;
 import com.assigment.GOJEK.parkinglot.ParkingLotI;
 import com.assigment.GOJEK.parkinglot.ParkingLotType;
 import com.assigment.GOJEK.parkinglot.Slot;

@@ -1,13 +1,9 @@
-package com.assigment.GOJEK.parkinglot.client;
+package com.assigment.GOJEK.parkinglot;
 
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.assigment.GOJEK.parkinglot.ParkingLot;
-import com.assigment.GOJEK.parkinglot.ParkingLotI;
-import com.assigment.GOJEK.parkinglot.ParkingLotType;
-import com.assigment.GOJEK.parkinglot.PublicParkingLot;
 import com.assigment.GOJEK.parklot.exception.NoSuchParkingLotException;
 
 public class ParkingLotFactoryImpl implements ParkingLotFactory {
