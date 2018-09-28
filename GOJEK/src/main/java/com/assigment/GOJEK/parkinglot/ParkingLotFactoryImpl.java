@@ -15,10 +15,9 @@ public class ParkingLotFactoryImpl implements ParkingLotFactory {
 
 	@Override
 	public ParkingLotI getParkingLot(ParkingLotType parkingLotType,int slots) throws NoSuchParkingLotException {
-		ParkingLot parkingLot = null;
+		ParkingLot parkingLot = parkingLots.get(parkingLotType);
+
          if(parkingLotType.equals(ParkingLotType.PUBLIC)) {
-        	 parkingLot = parkingLots.get(parkingLotType);
-        	 
         	 if(parkingLot == null) {
         		synchronized (ParkingLotFactoryImpl.class) {
 					if(parkingLot == null)
