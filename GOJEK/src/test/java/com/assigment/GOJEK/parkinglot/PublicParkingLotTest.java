@@ -8,6 +8,7 @@ import com.assigment.GOJEK.parkinglot.Color;
 import com.assigment.GOJEK.parkinglot.ParkingLot;
 import com.assigment.GOJEK.parkinglot.PublicParkingLot;
 import com.assigment.GOJEK.parkinglot.Slot;
+import com.assigment.GOJEK.parklot.exception.CarCanNotBeFoundException;
 import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlots;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
@@ -56,10 +57,18 @@ public class PublicParkingLotTest extends TestCase {
 	
 	
 	public void testNearestAvailableSlotWhenSomeSlotsAreAlreadyOccupied() throws NOFreeSlotException {
-		parkLot.getSlots().poll();
-		parkLot.getSlots().poll();
+		parkLot.park(new Car("RegNo1",Color.Black));
+		parkLot.park(new Car("RegNo2",Color.Black));
 		Slot nearestSlot = new Slot(3,0);
 		assertEquals(nearestSlot.getSlotId(), parkLot.getNearestAvailableSlot().getSlotId());
+	}
+	
+	public void testNearestAvaiableSlotAfterParkingAndLeaving() throws CarCanNotBeFoundException, NOFreeSlotException {
+		parkLot.park(new Car("RegNo1",Color.Black));
+		parkLot.park(new Car("RegNo2",Color.Black));
+		Slot slot = new Slot(1,0);
+		parkLot.leave(slot);
+		assertEquals(slot, parkLot.getNearestAvailableSlot());
 	}
 	
 	//TODO instead of direct access,need to refactor it to use park and use up slots
