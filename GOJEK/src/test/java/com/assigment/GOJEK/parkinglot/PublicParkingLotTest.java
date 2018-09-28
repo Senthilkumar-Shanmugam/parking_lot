@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 
 import junit.framework.TestCase;
 
-public class ParkingLotTest extends TestCase {
+public class PublicParkingLotTest extends TestCase {
 	ParkingLot parkLot = null;
 	Car car = null;
 	private static final int NUMBEROFSLOTS = 5;
@@ -34,12 +34,18 @@ public class ParkingLotTest extends TestCase {
 		parkLot = null;
 		car = null;
 	}
-	public void testParkingLotExists() {
-		assertNotNull(parkLot);
-	}
 	
 	public void testParkingLotHasNSlots() {
 		assertEquals(NUMBEROFSLOTS,parkLot.getSlots().size());
+	}
+	
+	public void testCannotCreateParkingLotWithLessThanOneSlot() {
+		try {
+			parkLot = new PublicParkingLot(NUMBEROFSLOTS);
+			fail();
+		}catch(InsufficentNumberOfSlots exp) {
+			assertTrue(true);
+		}
 	}
 	
 	public void testgetNearestAvaiableSlot() throws NOFreeSlotException {
