@@ -6,7 +6,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.InsufficientResourcesException;
+
 import com.assigment.GOJEK.parklot.exception.CarCanNotBeFoundException;
+import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlots;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 
@@ -16,7 +19,7 @@ public class PublicParkingLot extends ParkingLot {
 		super();
 	}
 	
-	public PublicParkingLot(int number) {
+	public PublicParkingLot(int number) throws  InsufficentNumberOfSlots{
 		super(number);
 	}
 

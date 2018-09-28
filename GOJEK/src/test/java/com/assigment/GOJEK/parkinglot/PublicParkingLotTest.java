@@ -8,6 +8,7 @@ import com.assigment.GOJEK.parkinglot.Color;
 import com.assigment.GOJEK.parkinglot.ParkingLot;
 import com.assigment.GOJEK.parkinglot.PublicParkingLot;
 import com.assigment.GOJEK.parkinglot.Slot;
+import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlots;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 import static org.mockito.Matchers.matches;
@@ -23,7 +24,7 @@ public class PublicParkingLotTest extends TestCase {
 	private static final int NUMBEROFSLOTS = 5;
 	
 	@Override
-	protected void setUp() {
+	protected void setUp() throws InsufficentNumberOfSlots {
 		parkLot = new PublicParkingLot(NUMBEROFSLOTS);
 		car = new Car("KA-01-HH-1234",Color.Black);
         
@@ -41,7 +42,7 @@ public class PublicParkingLotTest extends TestCase {
 	
 	public void testCannotCreateParkingLotWithLessThanOneSlot() {
 		try {
-			parkLot = new PublicParkingLot(NUMBEROFSLOTS);
+			parkLot = new PublicParkingLot(0);
 			fail();
 		}catch(InsufficentNumberOfSlots exp) {
 			assertTrue(true);
