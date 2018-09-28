@@ -1,0 +1,135 @@
+cd /Users/senthilkumarshanmugam/Documents/Future/Assignments/GO_JEK/parking_lot/parking_lot/bin/../functional_spec; bundle install; bundle exec rake spec:functional
+Using rake 10.5.0
+Using ffi 1.9.23
+Using childprocess 0.9.0
+Using contracts 0.16.0
+Using builder 3.2.3
+Using backports 3.11.3
+Using cucumber-tag_expressions 1.1.1
+Using gherkin 5.0.0
+Using cucumber-core 3.1.0
+Using cucumber-expressions 5.0.17
+Using cucumber-wire 0.0.1
+Using diff-lcs 1.3
+Using multi_json 1.13.1
+Using multi_test 0.1.2
+Using cucumber 3.1.0
+Using rspec-support 3.7.1
+Using rspec-expectations 3.7.0
+Using thor 0.20.0
+Using aruba 0.14.5
+Using bundler 1.16.5
+Using rspec-core 3.7.1
+Using rspec-mocks 3.7.0
+Using rspec 3.7.0
+Bundle complete! 4 Gemfile dependencies, 23 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -I/Library/Ruby/Gems/2.3.0/gems/rspec-core-3.7.1/lib:/Library/Ruby/Gems/2.3.0/gems/rspec-support-3.7.1/lib /Library/Ruby/Gems/2.3.0/gems/rspec-core-3.7.1/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb
+Run options: include {:type=>"aruba"}
+
+End To End Suite
+  has aruba set up
+  full scenarios
+    input from file (FAILED - 1)
+    interactive input (FAILED - 2)
+
+Parking Lot
+  can create a parking lot
+  can park a car
+  can unpark a car
+  can report status (FAILED - 3)
+  add more specs as needed (PENDING: Not yet implemented)
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+
+  1) Parking Lot add more specs as needed
+     # Not yet implemented
+     # ./spec/parking_lot_spec.rb:40
+
+Failures:
+
+  1) End To End Suite full scenarios input from file
+     Failure/Error: expect(command.stdout).to eq(expected)
+
+       expected: "Created a parking lot with 6 slots\nAllocated slot number: 1\nAllocated slot number: 2\nAllocated sl...: 4\nSorry, parking lot is full\nKA-01-HH-1234, KA-01-HH-9999, KA-01-P-333\n1, 2, 4\n6\nNot found\n"
+            got: "Created a parking lot with 6 slots\nAllocated slot number: 1\nAllocated slot number: 2\nAllocated sl...: 4\nSorry, parking lot is full\nKA-01-HH-1234, KA-01-HH-9999, KA-01-P-333\n1, 2, 4\n6\nNot found\n"
+
+       (compared using ==)
+
+       Diff:
+       @@ -6,12 +6,12 @@
+        Allocated slot number: 5
+        Allocated slot number: 6
+        Slot number 4 is free
+       -Slot No.    Registration No    Colour
+       -1           KA-01-HH-1234      White
+       -2           KA-01-HH-9999      White
+       -3           KA-01-BB-0001      Black
+       -5           KA-01-HH-2701      Blue
+       -6           KA-01-HH-3141      Black
+       +Slot No.	Registeration No	Color
+       +1		KA-01-HH-1234		White
+       +2		KA-01-HH-9999		White
+       +3		KA-01-BB-0001		Black
+       +5		KA-01-HH-2701		Blue
+       +6		KA-01-HH-3141		Black
+        Allocated slot number: 4
+        Sorry, parking lot is full
+        KA-01-HH-1234, KA-01-HH-9999, KA-01-P-333
+     # ./spec/end_to_end_spec.rb:59:in `block (3 levels) in <top (required)>'
+     # /Library/Ruby/Gems/2.3.0/gems/aruba-0.14.5/lib/aruba/rspec.rb:22:in `block (2 levels) in <top (required)>'
+
+  2) End To End Suite full scenarios interactive input
+     Failure/Error: expect(command.stdout).to eq(expected)
+
+       expected: "Created a parking lot with 6 slots\nAllocated slot number: 1\nAllocated slot number: 2\nAllocated sl...: 4\nSorry, parking lot is full\nKA-01-HH-1234, KA-01-HH-9999, KA-01-P-333\n1, 2, 4\n6\nNot found\n"
+            got: "Created a parking lot with 6 slots\nAllocated slot number: 1\nAllocated slot number: 2\nAllocated sl...: 4\nSorry, parking lot is full\nKA-01-HH-1234, KA-01-HH-9999, KA-01-P-333\n1, 2, 4\n6\nNot found\n"
+
+       (compared using ==)
+
+       Diff:
+       @@ -6,12 +6,12 @@
+        Allocated slot number: 5
+        Allocated slot number: 6
+        Slot number 4 is free
+       -Slot No.    Registration No    Colour
+       -1           KA-01-HH-1234      White
+       -2           KA-01-HH-9999      White
+       -3           KA-01-BB-0001      Black
+       -5           KA-01-HH-2701      Blue
+       -6           KA-01-HH-3141      Black
+       +Slot No.	Registeration No	Color
+       +1		KA-01-HH-1234		White
+       +2		KA-01-HH-9999		White
+       +3		KA-01-BB-0001		Black
+       +5		KA-01-HH-2701		Blue
+       +6		KA-01-HH-3141		Black
+        Allocated slot number: 4
+        Sorry, parking lot is full
+        KA-01-HH-1234, KA-01-HH-9999, KA-01-P-333
+     # ./spec/end_to_end_spec.rb:66:in `block (3 levels) in <top (required)>'
+     # /Library/Ruby/Gems/2.3.0/gems/aruba-0.14.5/lib/aruba/rspec.rb:22:in `block (2 levels) in <top (required)>'
+
+  3) Parking Lot can report status
+     Failure/Error:
+           expect(command.output).to end_with(<<-EOTXT
+       Slot No.    Registration No    Colour
+       1           KA-01-HH-1234      White
+       2           KA-01-HH-3141      Black
+       3           KA-01-HH-9999      White
+       EOTXT
+       )
+
+       expected "Created a parking lot with 3 slots\nAllocated slot number: 1\nAllocated slot number: 2\nAllocated sl... No\tColor\n1\t\tKA-01-HH-1234\t\tWhite\n2\t\tKA-01-HH-3141\t\tBlack\n3\t\tKA-01-HH-9999\t\tWhite\n" to end with "Slot No.    Registration No    Colour\n1           KA-01-HH-1234      White\n2           KA-01-HH-3141      Black\n3           KA-01-HH-9999      White\n"
+     # ./spec/parking_lot_spec.rb:31:in `block (2 levels) in <top (required)>'
+     # /Library/Ruby/Gems/2.3.0/gems/aruba-0.14.5/lib/aruba/rspec.rb:22:in `block (2 levels) in <top (required)>'
+
+Finished in 5.96 seconds (files took 0.25133 seconds to load)
+8 examples, 3 failures, 1 pending
+
+Failed examples:
+
+rspec ./spec/end_to_end_spec.rb:56 # End To End Suite full scenarios input from file
+rspec ./spec/end_to_end_spec.rb:62 # End To End Suite full scenarios interactive input
+rspec ./spec/parking_lot_spec.rb:25 # Parking Lot can report status
+

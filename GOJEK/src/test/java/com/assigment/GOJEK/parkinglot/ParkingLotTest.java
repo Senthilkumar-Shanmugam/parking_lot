@@ -168,8 +168,8 @@ public class ParkingLotTest extends TestCase {
 		PrintStream out = mock(PrintStream.class);
         System.setOut(out);
         parkLot.status();
-        verify(out).println(matches("Slot No.\tRegisteration No\tColor"));
-        verify(out).println(matches("1\t\t"+car.getRegNum()+"\t\t"+car.getColor()));
+        verify(out).println(matches("Slot No.    Registration No    Colour"));
+        verify(out).println(matches("1           "+car.getRegNum()+"      "+car.getColor()));
 
 		
 	}

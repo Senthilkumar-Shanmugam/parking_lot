@@ -31,16 +31,10 @@ public class ParkingLotClient {
         if(args.length > 0)
         {
             String fileName = args[0];
-            System.out.println("********************* Run Parking Lot Utility using the commands in File*********************");
             executeCommandsInFile(fileName);
         }
         else
         {
-            System.out.println("==============================================================================");
-            System.out.println("********************* WELCOME TO PARKING LOT CLI CONSOLE *********************");
-            System.out.println("==============================================================================");
-            displayAllOptions();
-
             Scanner scanner = new Scanner(System.in);
             while (true) {
                 String commandln = scanner.nextLine();
@@ -48,28 +42,12 @@ public class ParkingLotClient {
             }
         }
     }
-    private static void displayAllOptions()
-    {
-        System.out.println("Available commands:" );
-        System.out.println("\t help");
-        System.out.println("\t create_parking_lot <slots>");
-        System.out.println("\t park <RegistrationNumber> <Color>");
-        System.out.println("\t leave <slot>");
-        System.out.println("\t status");
-        System.out.println("\t registration_numbers_for_cars_with_colour <color>");
-        System.out.println("\t slot_numbers_for_cars_with_colour <color>");
-        System.out.println("\t slot_number_for_registration_number <registrationNumber>");
-        System.out.println("\t exit");
-    }
     private static void runCommand(String commandln) throws Exception
     {
         String[] commandInput = commandln.split(" ");
         String command = commandInput[0];
-        if("help".equals(command))
-        {
-            displayAllOptions();
-        }
-        else if("create_parking_lot".equals(command))
+        
+        if("create_parking_lot".equals(command))
         {
             if(commandInput.length != 2)
             {

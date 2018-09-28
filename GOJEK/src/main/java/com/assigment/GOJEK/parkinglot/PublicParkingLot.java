@@ -125,7 +125,7 @@ public class PublicParkingLot extends ParkingLot {
 
 	@Override
 	public void status() throws Exception {
-		System.out.println("Slot No.\tRegisteration No\tColor");
+		System.out.println("Slot No.    Registration No    Colour");
 		
 		Map<Slot,Car> slotCarMap = getSlotCarMap();
 		
@@ -136,7 +136,7 @@ public class PublicParkingLot extends ParkingLot {
 		for(Map.Entry<Slot, Car> entry : slotCarMap.entrySet()) {
 			Slot slot =  entry.getKey();
 			Car car = entry.getValue();
-			System.out.println(slot.getSlotId()+"\t\t"+car.getRegNum()+"\t\t"+car.getColor());
+			System.out.println(slot.getSlotId()+"           "+car.getRegNum()+"      "+car.getColor());
 			
 		}
 		
