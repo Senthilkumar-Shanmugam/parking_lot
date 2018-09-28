@@ -124,7 +124,7 @@ public class PublicParkingLot extends ParkingLot {
 	}
 
 	@Override
-	public void status() throws Exception {
+	public void status(){
 		System.out.println("Slot No.    Registration No    Colour");
 		
 		Map<Slot,Car> slotCarMap = getSlotCarMap();
