@@ -71,14 +71,13 @@ public class PublicParkingLotTest extends TestCase {
 		assertEquals(slot, parkLot.getNearestAvailableSlot());
 	}
 	
-	//TODO instead of direct access,need to refactor it to use park and use up slots
 	public void testIfNoNearestAvailableFreeSlotThrowException() {
 		try {
-		parkLot.getSlots().poll();
-		parkLot.getSlots().poll();
-		parkLot.getSlots().poll();
-		parkLot.getSlots().poll();
-		parkLot.getSlots().poll();
+		parkLot.park(new Car("RegNo1",Color.Black));
+		parkLot.park(new Car("RegNo2",Color.Black));
+		parkLot.park(new Car("RegNo3",Color.Black));
+		parkLot.park(new Car("RegNo4",Color.Black));
+		parkLot.park(new Car("RegNo5",Color.Black));
 		parkLot.getNearestAvailableSlot();
 		fail();
 		}catch(NOFreeSlotException e) {
