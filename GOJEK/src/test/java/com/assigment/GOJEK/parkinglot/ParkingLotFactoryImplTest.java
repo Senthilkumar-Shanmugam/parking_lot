@@ -7,17 +7,25 @@ import junit.framework.TestCase;
 
 public class ParkingLotFactoryImplTest extends TestCase {
 	ParkingLotFactory parkFactory;
-	ParkingLotType parkingLotType;
 
 	protected void setUp() throws Exception {
 		parkFactory = new ParkingLotFactoryImpl();
 	}
 
 	protected void tearDown() throws Exception {
+		parkFactory = null;
 	}
 	
-	public void testParkingLotFactoryReturnsPakingLotIfThatParkingLotTypeExists() throws NoSuchParkingLotException, InsufficentNumberOfSlots {
+	public void testParkingLotFactoryReturnsPakingLotIfThatParkingLotTypeExists() throws  InsufficentNumberOfSlots, NoSuchParkingLotException {
 		assertNotNull(parkFactory.getParkingLot(ParkingLotType.PUBLIC, 1));
+	}
+	
+	public void testParkingLotFactoryReturnsExceptionRequestedParkingLotTypeDoesNotExist() throws InsufficentNumberOfSlots {
+		try {
+			parkFactory.getParkingLot(ParkingLotType.PRIVATE, 1);
+		}catch(NoSuchParkingLotException e) {
+			assertTrue(true);
+		}
 	}
 
 }
