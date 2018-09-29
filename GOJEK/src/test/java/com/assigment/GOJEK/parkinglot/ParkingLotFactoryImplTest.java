@@ -20,7 +20,7 @@ public class ParkingLotFactoryImplTest extends TestCase {
 		assertNotNull(parkFactory.getParkingLot(ParkingLotType.PUBLIC, 1));
 	}
 	
-	public void testParkingLotFactoryReturnsExceptionRequestedParkingLotTypeDoesNotExist() throws InsufficentNumberOfSlotsException {
+	public void testParkingLotFactoryReturnsExceptionIfRequestedParkingLotTypeDoesNotExist() throws InsufficentNumberOfSlotsException {
 		try {
 			parkFactory.getParkingLot(ParkingLotType.PRIVATE, 1);
 		}catch(NoSuchParkingLotException e) {
