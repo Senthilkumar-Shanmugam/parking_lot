@@ -87,7 +87,8 @@ public class PublicParkingLotTest extends TestCase {
 	}
 
 	public void testParkRegistersCarDetails() throws NOFreeSlotException {
-		parkLot.park(car);
+		Ticket tkt = parkLot.park(car);
+		assertTrue(tkt.getParkedCar().getRegNum().equals(car.getRegNum()));
 	}
 	
 	public void testParkingGivesTicketNumber() throws NOFreeSlotException {
@@ -185,11 +186,12 @@ public class PublicParkingLotTest extends TestCase {
         parkLot.status();
         verify(out).println(matches("Slot No.    Registration No    Colour"));
         verify(out).println(matches("1           "+car.getRegNum()+"      "+car.getColor()));
-
-		
 	}
-	
-	
-	
-	
+	public void testStatusPrintsNoCarIsParkedWhenNoCarIsParked() {
+		PrintStream out = mock(PrintStream.class);
+        System.setOut(out);
+        parkLot.status();
+        verify(out).println(matches("Slot No.    Registration No    Colour"));
+        verify(out).println(matches("No car is parked"));
+	}
 }
