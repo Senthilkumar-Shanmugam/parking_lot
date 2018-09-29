@@ -10,8 +10,12 @@ public class ParkingLotClientTest extends TestCase {
 	protected void tearDown() throws Exception {
 	}
 	
-	public void testParkingLotClientExists() {
-		assertTrue(true);
+	public void testWhenFileIsPassedCommandsAreExecutedFromParsingTheFile() {
+		
+	}
+	
+	public void testWhenNoFileIsPassedParkingLotRunsInCLIMode() {
+		
 	}
 
 }
