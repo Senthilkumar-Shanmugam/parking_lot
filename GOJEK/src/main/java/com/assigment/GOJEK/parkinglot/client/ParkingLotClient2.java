@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.assigment.GOJEK.parkinglot.ParkingLotCLI;
 import com.assigment.GOJEK.parkinglot.ParkingLotFactoryImpl;
 import com.assigment.GOJEK.parkinglot.ParkingLotI;
 import com.assigment.GOJEK.parkinglot.ParkingLotType;
@@ -29,11 +30,20 @@ public class ParkingLotClient2 {
 		Method[] parkMethods = parkingLot.getClass().getDeclaredMethods();
 		
 		for(Method method:parkMethods) {
-			if(method.getName().equals(anObject))
+             if(method.getName().equals("getSlotForRegNum"))
+            	 commandRegistry.put("slot_number_for_registration_number", method);
+             else if(method.getName().equals("slot_numbers_for_cars_with_colour"))
+            	 commandRegistry.put("slot_numbers_for_cars_with_colour", method);
+             else if(method.getName().equals("registration_numbers_for_cars_with_colour"))
+            	 commandRegistry.put("registration_numbers_for_cars_with_colour", method);
+             else
+                 commandRegistry.put(method.getName(), method);		 
+            	 
 		}
 	}
 
 	public static void main(String[] args) throws Exception {
+		System.out.println("inside main");
 		
 		 if(args.length > 0)
 	        {
@@ -66,10 +76,28 @@ public class ParkingLotClient2 {
                   create_parking_lot(slots);
                   initializeWithParkingLotOperations();
               }
-          }else {//dynamically invoke parking lot operations using reflection
+          }else  if("exit".equals(command)) {
+            	System.exit(0);
+          }else { // run the command from map
+        	  Method method = commandRegistry.get(command);
         	  
+        	  if(method == null)
+                  System.out.println("Invalid command");
+        	  else {
+	              if(commandInput.length < method.getParameterCount()+1) {
+	            	  System.out.println("Not enough arguments to this operation");
+	              }
+
+	              //construct obj array for method invocation
+	              Object[] params = new Object[commandInput.length-1];
+	              if(commandInput.length > 2) {
+		              for(int i=1,j=0;i<commandInput.length;i++) {
+		            	  params[j++]=commandInput[i];
+		              }
+	              }
+	              method.invoke(parkingLot, params);
+        	  }
           }
-    	
     }
     private static void executeCommandsInFile(String fileName) throws Exception
     {

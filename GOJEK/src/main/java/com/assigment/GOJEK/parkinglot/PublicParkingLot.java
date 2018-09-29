@@ -126,6 +126,7 @@ public class PublicParkingLot extends ParkingLot {
 	}
 
 	@Override
+	@ParkingLotCLI(cliCommandName = "status")
 	public void status(){
 		System.out.println("Slot No.    Registration No    Colour");
 		
