@@ -146,6 +146,15 @@ public class PublicParkingLotTest extends TestCase {
 		assertFalse(carsList.contains(car));
 	
     }
+    
+    public void testLeaveThrowsCarCanNotBeFoundExceptionWhenSlotIsUnOccupied() {
+    	try {
+    		parkLot.leave(new Slot(1,0));
+    		fail();
+    	}catch(CarCanNotBeFoundException e) {
+    		assertTrue(true);
+    	}
+    }
 	public void testgetSlotForRegNum() throws NOFreeSlotException, NoSlotFoundForRegNum {
 		//First park a car and get the slot for that regnum
 		parkLot.park(car);
