@@ -14,7 +14,7 @@ import com.assigment.GOJEK.parkinglot.ParkingLotType;
 import com.assigment.GOJEK.parkinglot.Slot;
 import com.assigment.GOJEK.parkinglot.Ticket;
 import com.assigment.GOJEK.parklot.exception.CarCanNotBeFoundException;
-import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlots;
+import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlotsException;
 import com.assigment.GOJEK.parklot.exception.NOFreeSlotException;
 import com.assigment.GOJEK.parklot.exception.NoSlotFoundForRegNum;
 import com.assigment.GOJEK.parklot.exception.NoSuchParkingLotException;
@@ -180,7 +180,7 @@ public class ParkingLotClient {
         }
 
     }
-    private static void create_parking_lot(int nrOfSlots) throws NoSuchParkingLotException, InsufficentNumberOfSlots
+    private static void create_parking_lot(int nrOfSlots) throws NoSuchParkingLotException, InsufficentNumberOfSlotsException
     {
     	parkingLot = parkFactory.getParkingLot(ParkingLotType.PUBLIC, nrOfSlots);
         System.out.println("Created a parking lot with " + nrOfSlots + " slots");

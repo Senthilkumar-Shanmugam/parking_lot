@@ -1,6 +1,6 @@
 package com.assigment.GOJEK.parkinglot;
 
-import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlots;
+import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlotsException;
 import com.assigment.GOJEK.parklot.exception.NoSuchParkingLotException;
 
 import junit.framework.TestCase;
@@ -16,11 +16,11 @@ public class ParkingLotFactoryImplTest extends TestCase {
 		parkFactory = null;
 	}
 	
-	public void testParkingLotFactoryReturnsPakingLotIfThatParkingLotTypeExists() throws  InsufficentNumberOfSlots, NoSuchParkingLotException {
+	public void testParkingLotFactoryReturnsPakingLotIfThatParkingLotTypeExists() throws  InsufficentNumberOfSlotsException, NoSuchParkingLotException {
 		assertNotNull(parkFactory.getParkingLot(ParkingLotType.PUBLIC, 1));
 	}
 	
-	public void testParkingLotFactoryReturnsExceptionRequestedParkingLotTypeDoesNotExist() throws InsufficentNumberOfSlots {
+	public void testParkingLotFactoryReturnsExceptionRequestedParkingLotTypeDoesNotExist() throws InsufficentNumberOfSlotsException {
 		try {
 			parkFactory.getParkingLot(ParkingLotType.PRIVATE, 1);
 		}catch(NoSuchParkingLotException e) {

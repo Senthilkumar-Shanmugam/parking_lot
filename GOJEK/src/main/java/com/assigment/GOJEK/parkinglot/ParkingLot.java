@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlots;
+import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlotsException;
 
 public abstract class ParkingLot implements ParkingLotI {
 	private PriorityQueue<Slot> slots = null;
@@ -15,9 +15,9 @@ public abstract class ParkingLot implements ParkingLotI {
 	
     public ParkingLot() {}
 	
-	public ParkingLot(int number) throws InsufficentNumberOfSlots {
+	public ParkingLot(int number) throws InsufficentNumberOfSlotsException {
 		if(number < 1)
-			throw new InsufficentNumberOfSlots("Number of slots must be greater than zero");
+			throw new InsufficentNumberOfSlotsException("Number of slots must be greater than zero");
 	
 		slots = new PriorityQueue(number,new SlotComparator());
 		regNumSlotMap = new HashMap<String,Slot>();

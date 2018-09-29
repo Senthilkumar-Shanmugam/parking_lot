@@ -4,7 +4,7 @@ package com.assigment.GOJEK.parkinglot;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlots;
+import com.assigment.GOJEK.parklot.exception.InsufficentNumberOfSlotsException;
 import com.assigment.GOJEK.parklot.exception.NoSuchParkingLotException;
 
 public class ParkingLotFactoryImpl implements ParkingLotFactory {
@@ -15,7 +15,7 @@ public class ParkingLotFactoryImpl implements ParkingLotFactory {
 
 
 	@Override
-	public ParkingLotI getParkingLot(ParkingLotType parkingLotType,int slots) throws NoSuchParkingLotException, InsufficentNumberOfSlots {
+	public ParkingLotI getParkingLot(ParkingLotType parkingLotType,int slots) throws NoSuchParkingLotException, InsufficentNumberOfSlotsException {
 		ParkingLot parkingLot = parkingLots.get(parkingLotType);
 
          if(parkingLotType.equals(ParkingLotType.PUBLIC)) {
