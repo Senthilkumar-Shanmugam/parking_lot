@@ -27,6 +27,12 @@
     <version>1.10.19</version>
     <scope>test</scope>
 </dependency>
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>3.1.0</version>
+</dependency>
+
     
   </dependencies>
      <build>
@@ -40,6 +46,18 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-jar-plugin</artifactId>
+	<version>3.1.0</version>
+	<configuration>
+		<archive>
+			<manifest>
+				<mainClass>com.assigment.GOJEK.parkinglot.client.ParkingLotClient</mainClass>
+			</manifest>
+		</archive>
+	</configuration>
+</plugin>
     </plugins>
   </build>
  
